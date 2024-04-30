@@ -4,4 +4,4 @@
 
 const regex = /^[A-Za-z]+([\-'\s\.][A-Za-z]+)*$/;
 
-const regex = /^\+?(\d[\s\-()]?){10,15}\d$/;
+const regex1 = /^\+?(\d[\s\-()]?){10,15}\d$/;
