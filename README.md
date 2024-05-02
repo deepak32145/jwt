@@ -1,9 +1,10 @@
-function isValidInput(input) {
-const regex = /^[a-zA-Z0-9.\/]+$/;
-return regex.test(input);
+function matchString(inputString) {
+const pattern = /^[a-zA-Z0-9 .]+$/;
+return pattern.test(inputString);
 }
 
-console.log(isValidInput("abc123")); // true
-console.log(isValidInput("abc123./")); // true
-console.log(isValidInput("abc123\*/")); // false
-console.log(isValidInput("Hello.World/2024")); // true
+// Test the function with some example strings
+const testStrings = ["Hello World", "Hello123", "Hello 123.", "Hello@123", "Hello World!"];
+const results = testStrings.map(text => `${text}: ${matchString(text)}`);
+
+console.log(results);
