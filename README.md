@@ -1,11 +1,9 @@
-function validateDecimal(input) {
-const regex = /^\d+\.\d{2}$/;
+function isValidInput(input) {
+const regex = /^[a-zA-Z0-9.\/]+$/;
 return regex.test(input);
 }
 
-console.log(validateDecimal("0.00")); // true
-console.log(validateDecimal("1.22")); // true
-console.log(validateDecimal("21.33")); // true
-console.log(validateDecimal("-1.23")); // false
-console.log(validateDecimal("123.4")); // false
-console.log(validateDecimal("1234.567")); // false
+console.log(isValidInput("abc123")); // true
+console.log(isValidInput("abc123./")); // true
+console.log(isValidInput("abc123\*/")); // false
+console.log(isValidInput("Hello.World/2024")); // true
