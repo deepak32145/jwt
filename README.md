@@ -1,9 +1,14 @@
-function validateString(input) {
-const regex = /^[a-zA-Z0-9 ?'".]\*$/;
-return regex.test(input);
+function validateInput(input) {
+// Define the regex pattern to match words, spaces, punctuation, and symbols
+const pattern = /^[\w\s\p{P}\p{S}]\*$/u;
+
+    // Test the input string against the regex pattern
+    return pattern.test(input);
+
 }
 
-console.log(validateString("Hello, who are you?")); // true
-console.log(validateString("I'm testing some 'quotes', and \"double quotes\".")); // true
-console.log(validateString("Notice the period at the end.")); // true
-console.log(validateString("Invalid string 😜")); // false
+// Example usage:
+console.log(validateInput("Hello, world!")); // true
+console.log(validateInput("123456")); // true
+console.log(validateInput("Test@#$%^&\*()")); // true
+console.log(validateInput("New\nLine")); // false, because \n is not explicitly allowed
