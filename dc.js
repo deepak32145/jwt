@@ -1,9 +1,8 @@
-const regex = /^\d+(\.\d{1,2})?$/;
+const regex = /^\d+\.\d{2}$/;
 
-console.log(regex.test("123")); // true
-console.log(regex.test("0")); // true
-console.log(regex.test("1.2")); // true
-console.log(regex.test("1.23")); // true
-console.log(regex.test("123.")); // false
-console.log(regex.test("1.20")); // false
-console.log(regex.test(".123")); // false
+console.log("Testing '1.00':", regex.test("1.00")); // true
+console.log("Testing '10.00':", regex.test("10.00")); // true
+console.log("Testing '153.00':", regex.test("153.00")); // true
+console.log("Testing '1.2':", regex.test("1.2")); // false
+console.log("Testing '153.1':", regex.test("153.1")); // false
+console.log("Testing '153.100':", regex.test("153.100")); // false
