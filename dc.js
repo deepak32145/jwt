@@ -1,32 +1,4 @@
-import { Component } from '@angular/core';
+const strictDateRegex =
+  /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2[0-8])\/(19|20)\d{2}$|^(0[13-9]|1[0-2])\/(29|30)\/(19|20)\d{2}$|^(0[13578]|1[02])\/31\/(19|20)\d{2}$|^02\/29\/(19|20)([02468][048]|[13579][26])$/;
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  dates: string[] = [
-    '21--05--2024',
-    '15--08--2023',
-    '01--01--2022'
-  ];
-
-  transformDate(dateString: string): string | null {
-    if (!dateString) return null;
-
-    const [day, month, year] = dateString.split('--').map(part => parseInt(part, 10));
-
-    if (!day || !month || !year) return null;
-
-    const date = new Date(year, month - 1, day); // month is 0-based in JavaScript Date
-
-    // Format the date to MM/dd/yyyy
-    const formattedDate = `${this.padZero(date.getMonth() + 1)}/${this.padZero(date.getDate())}/${date.getFullYear()}`;
-    return formattedDate;
-  }
-
-  private padZero(value: number): string {
-    return value < 10 ? `0${value}` : `${value}`;
-  }
-}
+const dateRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/(19|20)\d{2}$/;
